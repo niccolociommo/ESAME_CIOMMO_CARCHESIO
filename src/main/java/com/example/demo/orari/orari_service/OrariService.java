@@ -6,16 +6,14 @@ import java.util.List;
 
 public interface OrariService {
 
-
-    }
-
     Orari getOrari(Long id);
 
     Orari updateOrari(Orari orari);
 
-    void deleteOrari(Orari id)
+    void deleteOrari(Long id);
 
     List<Orari> getOrari();
 
-    Orari getOrari(Long id);
+}
+
 }

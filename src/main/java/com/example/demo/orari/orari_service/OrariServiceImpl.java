@@ -5,40 +5,37 @@ import com.example.demo.orari.OrariRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-
 public class OrariServiceImpl implements OrariService {
 
     private final OrariRepository orariRepository;
 
-    this.OrariRepository = orarirepository;
-
-    public OrariRepository getOrariRepository() {
-        return orariRepository;
+    public OrariServiceImpl(OrariRepository orariRepository) {
+        this.orariRepository = orariRepository;
     }
 
     @Override
     public Orari updateOrari(Orari orari) {
-        return orariRepository.save(orari)
-        return null;
+        return orariRepository.save(orari);
     }
 
     @Override
-    public void deleteOrari(Orari id) {
-            orariRepository.deleteById(id);
-
+    public void deleteOrari(Long id) {
+        orariRepository.deleteById(id);
     }
 
     @Override
     public List<Orari> getOrari() {
-        return orariRepository.findAll()
-        return null;
+        return orariRepository.findAll();
     }
 
     @Override
     public Orari getOrari(Long id) {
-        return orariRepository.findById(id).orElseThrow();
-        return null;
+        Optional<Orari> optionalOrari = orariRepository.findById(id);
+        return optionalOrari.orElse(null); // Puoi gestire diversamente se l'elemento non viene trovato
     }
 }
+``
+

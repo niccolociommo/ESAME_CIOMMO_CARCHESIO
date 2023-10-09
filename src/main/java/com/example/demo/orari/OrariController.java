@@ -1,34 +1,25 @@
 package com.example.demo.orari;
 
 import com.example.demo.orari.orari_service.OrariService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.security.PublicKey;
 import java.util.List;
 
 @RestController
+@RequestMapping("/orari") // Definisco il prefisso delle route
 
 public class OrariController {
-    private final OrariService OrariService;
+    private final OrariService orariService;
 
-
-    public OrariController(com.example.demo.orari.orari_service.OrariService orariService) {
-        this.OrariService = orariService;
+    public OrariController(OrariService orariService) {
+        this.orariService = orariService;
     }
 
-    @GetMapping("/Orari")
-    public List<Orari> getallOrari(){
-        return OrariService.getallOrari();
+    @GetMapping("/all") // Aggiungo "/all" per rendere la route univoca e descrittiva
+    public List<Orari> getAllOrari() {
+        return orariService.getAllOrari(); // Cambio il nome del metodo e della variabile per seguirne la convenzione
     }
 
-    @GetMapping("/orari/{id}")
-    public Orari getOrari(@PathVariable Long id){
-        return OrariService.getOrari(id)
-    }
-
-    PostMapping("Orari")
-    Public Orari createOrari()
-}
+    @GetMapping("/{id}")
+    public Orari getOrari(@PathVariable Long id) {
+        return orariService.getOrari(id); // Aggiungo il punto e virgola mancante
