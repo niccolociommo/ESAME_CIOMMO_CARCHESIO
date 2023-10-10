@@ -27,7 +27,7 @@ public class studenteserviceimpl implements studenteservice{
     }
 
     @Override
-    public List<studenteservice> getAllstudente() {
+    public List<studente> getAllstudente() {
         return studenterepository.findAll();
     }
 

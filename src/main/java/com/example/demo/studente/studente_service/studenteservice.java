@@ -9,7 +9,7 @@ public interface studenteservice {
 
     void deletestudente(Long id);
 
-    List<studenteservice> getAllstudente();
+    List<studente> getAllstudente();
 
     studente getstudente(Long id);
 
