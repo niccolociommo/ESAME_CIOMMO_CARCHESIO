@@ -36,7 +36,7 @@ public class studentecontroller {
     @PutMapping("/studente/{id}")
     public studente updatestudente(@PathVariable Long id, @RequestBody studente studente) throws HttpServerErrorException {
         if (!id.equals(studente.getId())){
-            throw new HttpServerErrorException(BAD_REQUEST, "id in path does not match id in animal object");
+            throw new HttpServerErrorException(BAD_REQUEST, "id in path does not match id in studente object");
         }
         return studente;
     }

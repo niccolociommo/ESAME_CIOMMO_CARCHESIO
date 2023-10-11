@@ -37,7 +37,7 @@ public class oraricontroller {
     @PutMapping("/orari/{id}")
     public orari updateorari(@PathVariable Long id, @RequestBody orari orari) throws HttpServerErrorException {
         if (!id.equals(orari.getId())){
-            throw new HttpServerErrorException(BAD_REQUEST, "id in path does not match id in animal object");
+            throw new HttpServerErrorException(BAD_REQUEST, "id in path does not match id in orari object");
         }
         return orari;
     }
